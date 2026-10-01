@@ -1,0 +1,29 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13", "3.14"]
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install package with dev dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+      - name: Run tests with coverage
+        run: pytest --cov=finance_engine --cov-report=term-missing --cov-fail-under=90
+      - name: Smoke-test the CLI
+        run: |
+          finance-engine validate sample_data/transactions.csv
+          finance-engine summary sample_data/transactions.csv --month 2026-09
+          finance-engine export sample_data/transactions.csv --format json > /dev/null
