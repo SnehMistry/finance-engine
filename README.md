@@ -1,4 +1,6 @@
-# Finance Engine
+# Python Financial Data & Application Engine
+
+### Finance Engine: the `finance-engine` command-line tool
 
 [![tests](https://github.com/SnehMistry/finance-engine/actions/workflows/tests.yml/badge.svg)](https://github.com/SnehMistry/finance-engine/actions/workflows/tests.yml)
 ![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue)
