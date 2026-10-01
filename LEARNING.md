@@ -258,7 +258,7 @@ passed.
 **4. How does the "unusually large expense" rule work, and why did you design
 it that way?**
 
-> A first version comparing every expense with the overall average would flag
+> Comparing every expense with the overall average would flag
 > rent every single month. Instead I compare each expense with the average of
 > the other expenses in the same category across the whole file. So a $1,299
 > laptop is compared with other shopping (about $47 on average) and flagged at
