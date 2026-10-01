@@ -56,6 +56,13 @@ def test_valid_income_row_with_deductions():
     assert entry.deductions == Decimal("900.00")
 
 
+def test_income_row_with_deductions_but_no_gross():
+    entry, problems = validate_row(raw(type="income", category="salary", amount="800", tax="200"))
+    assert problems == []
+    assert entry.gross is None
+    assert entry.gross_amount == Decimal("1000.00")
+
+
 def test_zero_deduction_is_allowed():
     entry, _ = validate_row(raw(type="income", category="salary", gross="100", tax="0", amount="100"))
     assert entry.tax == Decimal("0.00")
