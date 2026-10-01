@@ -1,0 +1,15 @@
+date,type,category,description,amount,gross,tax,benefits,retirement
+2026-09-01,expense,housing,Monthly rent,1650.00,,,,
+2026-09-31,expense,groceries,Weekly groceries,85.00,,,,
+09/05/2026,expense,dining,Takeout,22.50,,,,
+2026-09-06,expense,groceries,Weekly groceries,abc,,,,
+2026-09-07,expense,transport,Bus pass,-45.00,,,,
+2026-09-08,expense,,Mystery purchase,19.99,,,,
+2026-09-09,expense,gambling,Casino night,200.00,,,,
+2026-09-10,salary,salary,Paycheck,2188.00,3200.00,640.00,180.00,192.00
+2026-09-11,income,salary,Paycheck - Acme Data Co.,2188.00,3200.00,640.00,180.00,192.00
+2026-09-11,income,salary,Paycheck - Acme Data Co.,2188.00,3200.00,640.00,180.00,192.00
+2026-09-12,expense,dining,Coffee,4.255,,,,
+2026-09-13,expense,shopping,Headphones,59.99,70.00,,,
+2026-09-14,expense,groceries,,45.00,,,,
+2026-09-15,expense,utilities,Internet,60.00,,,,
