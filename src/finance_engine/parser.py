@@ -53,14 +53,14 @@ def parse_file(path: str | Path) -> ParseResult:
 
 def _read(handle: TextIO) -> list[RawRow]:
     reader = csv.DictReader(handle, restkey=_EXTRA_KEY)
-    if not reader.fieldnames:
-        return []  # empty file, or only blank lines
-    header = [name.strip().lower() for name in reader.fieldnames]
-    _check_header(header)
-    reader.fieldnames = header
-
-    rows: list[RawRow] = []
     try:
+        if not reader.fieldnames:
+            return []  # empty file, or only blank lines
+        header = [name.strip().lower() for name in reader.fieldnames]
+        _check_header(header)
+        reader.fieldnames = header
+
+        rows: list[RawRow] = []
         for record in reader:
             extra = record.pop(_EXTRA_KEY, [])
             fields = {name: (value or "").strip() for name, value in record.items()}
@@ -72,7 +72,8 @@ def _read(handle: TextIO) -> list[RawRow]:
                 )
             )
     except csv.Error as exc:
-        raise FileFormatError(f"line {reader.line_num}: {exc}") from None
+        # line_num has not been advanced for the line that failed, hence the + 1.
+        raise FileFormatError(f"near line {reader.line_num + 1}: {exc}") from None
     return rows
 
 
