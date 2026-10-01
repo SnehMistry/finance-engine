@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -7,13 +7,13 @@ name = "finance-engine"
 version = "1.0.0"
 description = "Command-line personal finance and paycheck analyzer: validates a CSV of income and expenses and reports savings, deductions and spending warnings."
 readme = "README.md"
-license = { file = "LICENSE" }
+license = "MIT"
+license-files = ["LICENSE"]
 authors = [{ name = "Sneh Vinay Mistry" }]
 requires-python = ">=3.11"
 dependencies = []
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
     "Environment :: Console",
     "Topic :: Office/Business :: Financial",
 ]
