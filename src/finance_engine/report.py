@@ -46,8 +46,8 @@ def render_text(summary: Summary, alerts: Sequence[Alert]) -> str:
         return "\n".join(lines)
 
     lines.append(
-        f"{summary.entry_count} entries ({summary.income_count} income, "
-        f"{summary.expense_count} expense)"
+        f"Entries: {summary.entry_count} "
+        f"(income: {summary.income_count}, expense: {summary.expense_count})"
     )
     lines.append("")
     lines.append(
